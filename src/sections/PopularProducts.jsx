@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { products } from '../constants'
 import PopularProductCard from '../components/PopularProductCard'
-import ScrollAnimation from 'react-animate-on-scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const PopularProducts = () => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   return (
     
    <section id='products'
-   className='max-container max-sm:mt-12'
+   className='max-container max-sm:mt-12' 
    > 
 
     <div className='flex flex-col justify-start gap-5'>
@@ -15,15 +20,15 @@ const PopularProducts = () => {
       <p className='lg:max-w-lg mt-2 font-montserrat text-slate-gray'>Experience Top-notch quality and style with our sought-after selections. Discover a world of comfort, design, and value</p>
 
     </div>
-<ScrollAnimation animateIn="fadeIn">
-    <div className='mt-16 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14'>
+
+    <div className='mt-16 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14' data-aos="fade-up"data-aos-anchor-placement="top-bottom" >
 
       {products.map((product) => (
         <PopularProductCard key={product.name} {...product} />
       ))}
 
     </div>
-    </ScrollAnimation>
+
 
    </section>
 

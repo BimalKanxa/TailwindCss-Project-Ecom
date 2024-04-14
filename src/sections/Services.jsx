@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {services} from '../constants'
 import ServiceCard from '../components/ServiceCard'
-import ScrollAnimation from 'react-animate-on-scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Services = () => {
+useEffect(() => {
+  AOS.init();
+}, [])
+
+
   return (
-    <ScrollAnimation animateIn="fadeIn">
-    <section className='max-container flex justify-center flex-wrap gap-9'>
+
+    <section className='max-container flex justify-center flex-wrap gap-9' data-aos="zoom-in">
       
         {services.map((service) => (
           <ServiceCard key={service.label} {...service}/>
         ))}
  
     </section>
-    </ScrollAnimation>
+
   )
 }
 

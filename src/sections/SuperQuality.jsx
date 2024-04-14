@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Button from '../components/Button'
 import shoe8 from '../assets/images/shoe8.svg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SuperQuality = () => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
+
   return (
-    <section id='about-us' className='flex justify-between items-center max-lg:flex-col gap-10 w-full max-container'>
+    <section id='about-us' className='flex justify-between items-center max-lg:flex-col gap-10 w-full max-container' data-aos="fade-up"data-aos-anchor-placement="top-bottom" >
       
-      <div className='flex flex-1 flex-col'>
+      <div className='flex flex-1 flex-col' >
 
         
         <h2 className='font-palanquin text-4xl capitalize font-bold lg:max-w-lg'>
